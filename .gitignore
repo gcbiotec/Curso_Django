@@ -7,3 +7,5 @@
 # Name of your virtuan env
 .vEnv
 *pyc
+.env
+
