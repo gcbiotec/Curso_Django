@@ -1,1 +1,1 @@
-web: gunicorn gcbiotec-aula.wsgi
+web: gunicorn gestao_clientes.wsgi --
