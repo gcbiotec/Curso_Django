@@ -6,13 +6,22 @@
 
 {% block main %}
 
-    <h1>Seja bem vindo!</h1>
-
-        {% if user.is_authenticated %}
+<div class="row">
+    <div class="col">
+      Column
+    </div>
+    <div class="col">
+      <h1>Seja bem vindo!</h1>
+    </div>
+    <div class="col">
+       {% if user.is_authenticated %}
             <p>Olá {{user.username}}</p>
             <a href="{% url 'my_logout' %}">Logout</a>
         {% else %}
             <a href="{% url 'login' %}">Login</a>
         {% endif %}
+    </div>
+  </div>
+
 
 {% endblock %}

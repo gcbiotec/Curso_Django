@@ -1,27 +1,44 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<ul>
+{% extends 'base.html' %}
+{% load bootstrap %}
 
-    {% for person in persons %}
-    <li>
-        <a href="{% url 'persons_update' person.id %}"> {{person.first_name}}</a>
-        <a href="{% url 'persons_delete' person.id %}">Deletar!</a>
+{% block title %}
+    Administraçao de Contas
+{% endblock %}
 
-    </li>
-    {% endfor %}
-</ul>
+{% block main %}
+<div class="row">
 
-<br>
+    <div class="col">
+        {% if user.is_authenticated %}
+        <p>Olá {{user.username}}</p>
+        <a href="{% url 'my_logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+    <div class="col-6">
+        <ul>
+            {% for person in persons %}
+            <li>
+                <a href="{% url 'persons_update' person.id %}"> {{person.first_name}}</a>
+                <a href="{% url 'persons_delete' person.id %}">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col"><br>
+            <a href="{% url 'person_new' %}" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar..
+            </a>
+        {% endblock %}
+    </div>
 
-<a href="{% url 'person_new' %}">Adicione outro usuário!</a>
 
-</body>
-</html>
+
+
+
+
+
+
