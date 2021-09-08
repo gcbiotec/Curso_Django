@@ -7,3 +7,7 @@
 # https://gcbiotec-aula.herokuapp.com/
 
 # https://git.heroku.com/gcbiotec-aula.git
+
+# git push heroku Curso_ProjetoFinal:main
+
+# git push heroku Curso_ProjetoFinal:master
